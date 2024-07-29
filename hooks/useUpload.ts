@@ -31,6 +31,7 @@ function useUpload() {
         // TODO: FREE/PRO limitation...
 
         const fileToUploadTo = uuidv4()
+        // console.log(fileToUploadTo,"********")
 
         const storageRef = ref(storage,`users/${user.id}/files/${fileToUploadTo}`)
 
@@ -64,11 +65,13 @@ function useUpload() {
         setStatus(StatusText.GENERATING) // generating AI embedding
 
         setFileId(fileToUploadTo)
+        console.log(fileId,"*******")
     }
     )
 
 
     }
+    
     return {progress,status,fileId,handleUpload}
  
 }
