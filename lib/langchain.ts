@@ -103,6 +103,16 @@ export async function generateEmbeddingsInPineconeVectorStore(docId:string){
         // if the namespace does not exists, then download the PDF file from firebase store & save the download URL & generate embeddings and store them in the pinecone vector store
 
         const splitDocs =  await generateDocs(docId)
+
+        console.log(` ---- storing the embedding in namespace ${docId} in the ${indexName}. Pinecone vector store ... ----`)
+
+        pineconeVectorStore = await PineconeStore.fromDocuments(splitDocs,embeddings,{
+            pineconeIndex: index,
+            namespace: docId
+        })
+
+        return pineconeVectorStore
+
     }
 
 
