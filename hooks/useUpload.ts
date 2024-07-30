@@ -62,7 +62,8 @@ function useUpload() {
             createdAt: new Date()
         })
 
-        setStatus(StatusText.GENERATING) // generating AI embedding
+        setStatus(StatusText.GENERATING)
+         // generating AI embedding
 
         setFileId(fileToUploadTo)
         console.log(fileId,"*******")
